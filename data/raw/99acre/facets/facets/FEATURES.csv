@@ -1,15 +1,3 @@
-id,label
-001,Swimming Pool
-002,Power Backup
-003,Club house
-004,Parking
-006,Park
-009,Security Personnel
-011,ATM
-012,Gymnasium
-021,Lift
-025,Waste disposal
-029,Gas Pipeline
-034,Wheelchair Accessibility
-035,DG Availability
-039,Near bank
+version https://git-lfs.github.com/spec/v1
+oid sha256:895487d66022c8a70ca21d54ba6fa796526c4114487d5f64e576c1a554850519
+size 233

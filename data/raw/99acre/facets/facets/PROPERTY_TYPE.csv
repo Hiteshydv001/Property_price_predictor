@@ -1,8 +1,3 @@
-id,label
-001,Residential Apartment
-002,Independent House/Villa
-003,Residential Land
-004,Independent/Builder Floor
-005,Farm House
-022,Serviced Apartments
-090,Studio Apartment
+version https://git-lfs.github.com/spec/v1
+oid sha256:92060ae272f192e95388160276fb686ab89df17e6919a474761497e546968b33
+size 174

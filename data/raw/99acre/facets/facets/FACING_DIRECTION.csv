@@ -1,9 +1,3 @@
-id,label
-001,North
-002,South
-003,East
-004,West
-005,North-East
-006,North-West
-007,South-East
-008,South-West
+version https://git-lfs.github.com/spec/v1
+oid sha256:0e29df1cb9059fabb66bccd94091d13a2963a34d378440907c9732e1783bf051
+size 107

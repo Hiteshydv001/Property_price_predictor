@@ -1,4 +1,3 @@
-id,label
-001,Furnished
-002,Unfurnished
-004,Semifurnished
+version https://git-lfs.github.com/spec/v1
+oid sha256:29ac71ebc1cb280faa476784f950e2a494439efb3e1487e945c70285ec08cb86
+size 57
