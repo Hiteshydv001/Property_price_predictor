@@ -18,6 +18,11 @@ FROM python:3.11-slim
 # Set the working directory in the container
 WORKDIR /app
 
+# --- THIS IS THE FIX ---
+# Install the required OpenMP library for LightGBM before installing Python packages
+RUN apt-get update && apt-get install -y libgomp1
+# --------------------------
+
 # Install Python dependencies first
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
