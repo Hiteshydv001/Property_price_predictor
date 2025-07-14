@@ -5,8 +5,11 @@ set -o errexit
 # Install Python dependencies
 pip install -r requirements.txt
 
-# Install Git LFS
-apt-get update && apt-get install -y git-lfs
+# --- THIS IS THE FIX ---
+# Use sudo to grant permissions for installing system packages
+sudo apt-get update
+sudo apt-get install -y git-lfs
+# ---------------------
 
 # Pull the large files
 git lfs pull
