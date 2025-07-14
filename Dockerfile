@@ -8,20 +8,8 @@ RUN apt-get update && apt-get install -y git git-lfs
 # Set the working directory
 WORKDIR /app
 
-# Initialize an empty git repository and enable LFS
-RUN git init && git lfs install
-
-# This is the key: Add your GitHub remote.
-# Replace the URL with your actual GitHub repository URL.
-RUN git remote add origin https://github.com/Hiteshydv001/Property_price_predictor.git
-
-# --- THIS IS THE FIX ---
-# Fetch from the 'master' branch instead of 'main'
-RUN git lfs fetch origin master
-
-# Checkout the LFS pointers from the 'master' branch
-RUN git lfs checkout master
-# -----------------------
+# Clone the repository. This also pulls the LFS files automatically.
+RUN git clone https://github.com/Hiteshydv001/Property_price_predictor.git .
 
 # --- Stage 2: The "Final App" ---
 # This is the clean, final container for our application.
@@ -30,12 +18,11 @@ FROM python:3.11-slim
 # Set the working directory in the container
 WORKDIR /app
 
-# Install Python dependencies first (this layer is cached)
+# Install Python dependencies first
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy the application code and the LFS files from the "builder" stage
-COPY . .
+# Copy the fully cloned application with LFS files from the "builder" stage
 COPY --from=builder /app .
 
 # Expose the port Gunicorn will run on
