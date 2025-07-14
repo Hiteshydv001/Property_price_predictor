@@ -11,15 +11,17 @@ WORKDIR /app
 # Initialize an empty git repository and enable LFS
 RUN git init && git lfs install
 
-# This is the key: Add your GitHub remote. 
+# This is the key: Add your GitHub remote.
 # Replace the URL with your actual GitHub repository URL.
 RUN git remote add origin https://github.com/Hiteshydv001/Property_price_predictor.git
 
-# Fetch only the LFS metadata without downloading the actual files yet
-RUN git lfs fetch origin main
+# --- THIS IS THE FIX ---
+# Fetch from the 'master' branch instead of 'main'
+RUN git lfs fetch origin master
 
-# Checkout the LFS pointers into the working directory
-RUN git lfs checkout
+# Checkout the LFS pointers from the 'master' branch
+RUN git lfs checkout master
+# -----------------------
 
 # --- Stage 2: The "Final App" ---
 # This is the clean, final container for our application.
